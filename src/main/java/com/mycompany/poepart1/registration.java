@@ -4,6 +4,8 @@
  */
 package com.mycompany.poepart1;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author RC_Student_lab
@@ -31,11 +33,11 @@ public class registration extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        username = new javax.swing.JTextField();
+        password = new javax.swing.JTextField();
+        number = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
+        BACK = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 255, 255));
@@ -54,66 +56,76 @@ public class registration extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setText("CELLPHONE NUMBER :");
 
-        jTextField1.setBackground(new java.awt.Color(204, 204, 204));
+        username.setBackground(new java.awt.Color(204, 204, 204));
 
-        jTextField2.setBackground(new java.awt.Color(204, 204, 204));
+        password.setBackground(new java.awt.Color(204, 204, 204));
 
-        jTextField3.setBackground(new java.awt.Color(204, 204, 204));
+        number.setBackground(new java.awt.Color(204, 204, 204));
 
-        jButton1.setBackground(new java.awt.Color(102, 153, 255));
+        jButton1.setBackground(new java.awt.Color(204, 204, 204));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton1.setText("GET REGISTERED");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGES/YLet’s Chatt.png"))); // NOI18N
+        BACK.setBackground(new java.awt.Color(204, 204, 204));
+        BACK.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        BACK.setText("BACK");
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
         panel1Layout.setHorizontalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel1Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
-                    .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                        .addComponent(jTextField2)
-                        .addComponent(jTextField3)))
+                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1)
+                            .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(username, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                                .addComponent(password)
+                                .addComponent(number))))
+                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addGap(126, 126, 126)
+                        .addComponent(jLabel1)))
                 .addContainerGap(78, Short.MAX_VALUE))
-            .addGroup(panel1Layout.createSequentialGroup()
-                .addGap(126, 126, 126)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
-                .addComponent(jLabel6)
-                .addGap(23, 23, 23))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(BACK)
+                .addGap(29, 29, 29))
         );
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panel1Layout.createSequentialGroup()
-                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel6))
+                        .addComponent(jLabel1)
                         .addGap(18, 18, 18)
                         .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(26, 26, 26)
                         .addComponent(jLabel3)))
                 .addGap(29, 29, 29)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(number, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addComponent(BACK)
+                .addGap(21, 21, 21))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -130,6 +142,88 @@ public class registration extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       String Username = username.getText();// TODO add your handling code here:
+       String Password = password.getText();
+       String Cellnumber = number.getText();
+    
+       
+     if (Username.length()<=5 && Username.contains("_")){
+     
+         JOptionPane.showMessageDialog(null, "Username Successfuly Captured");
+     } 
+                else 
+     {
+               JOptionPane.showMessageDialog(null, "Username is not correctly formatted,please ensure that your username contains an underscore and is no more than five characters in length");
+       
+    }//GEN-LAST:event_jButton1ActionPerformed
+     
+    
+    if (Password.length()<=8 && Password.contains("*[A-Z]*")&& Password.contains(".*[0-9].*") && Password.contains("*.[!@#$%^&*(),.?\\\":{}|<>!].*")){
+     
+        JOptionPane.showMessageDialog(null, "Password successfully captured");
+    }
+    
+    else
+     {
+        JOptionPane.showMessageDialog(null, "Password is not correctly formatted;please make sure that the password contains eight characters, a capital letter,a number, and a special character");
+}
+    }
+    
+    
+    
+    public class CellphoneValidator {
+    public static boolean isValidCellphone(String number) {
+        // 1. Check if null or empty
+        if (number == null || number.isEmpty()) {
+            return false;
+        }
+
+        // 2. Check length (10 digits for local numbers)
+        if (number.length() != 10) {
+            return false;
+        }
+
+        // 3. Must start with 0
+        if (!number.startsWith("0")) {
+            return false;
+        }
+
+        // 4. Must only contain digits
+        for (int i = 0; i < number.length(); i++) {
+            if (!Character.isDigit(number.charAt(i))) {
+                return false;
+            }
+        }
+
+        // 5. (Optional) Check valid prefixes: 06, 07, 08
+        String prefix = number.substring(0, 2);
+        if (!(prefix.equals("06") || prefix.equals("07") || prefix.equals("08"))) {
+            return false;
+        }
+
+        return true; // ✅ Passed all checks
+    }
+
+    public static void main(String[] args) {
+        System.out.println(isValidCellphone("0823456789")); // true
+        System.out.println(isValidCellphone("0621234567")); // true
+        System.out.println(isValidCellphone("0123456789")); // false (wrong prefix)
+        System.out.println(isValidCellphone("08234abc89")); // false (not all digits)
+        System.out.println(isValidCellphone("082345678"));  // false (too short)
+    }
+}
+   
+    
+     private void BACKActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        new homepage().setVisible(true);// TODO add your handling code here:
+    }    
+   
+    
+     
+    
+   
+      
     /**
      * @param args the command line arguments
      */
@@ -165,16 +259,18 @@ public class registration extends javax.swing.JFrame {
         });
     }
 
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BACK;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField number;
     private java.awt.Panel panel1;
+    private javax.swing.JTextField password;
+    private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
 }
