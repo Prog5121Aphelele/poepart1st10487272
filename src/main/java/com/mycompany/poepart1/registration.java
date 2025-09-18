@@ -5,12 +5,17 @@
 package com.mycompany.poepart1;
 
 import javax.swing.JOptionPane;
-
+import java.util.Scanner;
 /**
  *
  * @author RC_Student_lab
  */
 public class registration extends javax.swing.JFrame {
+
+    public static String usernameInput;  // make it static so other classes can access
+    public static String passwordInput;
+    public static String cellNumber;
+
 
     /**
      * Creates new form registration
@@ -18,7 +23,7 @@ public class registration extends javax.swing.JFrame {
     public registration() {
         initComponents();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,10 +38,10 @@ public class registration extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        username = new javax.swing.JTextField();
-        password = new javax.swing.JTextField();
-        number = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        usernameField = new javax.swing.JTextField();
+        passwordField = new javax.swing.JTextField();
+        numberField = new javax.swing.JTextField();
+        getregistered = new javax.swing.JButton();
         BACK = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -56,24 +61,34 @@ public class registration extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setText("CELLPHONE NUMBER :");
 
-        username.setBackground(new java.awt.Color(204, 204, 204));
-
-        password.setBackground(new java.awt.Color(204, 204, 204));
-
-        number.setBackground(new java.awt.Color(204, 204, 204));
-
-        jButton1.setBackground(new java.awt.Color(204, 204, 204));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton1.setText("GET REGISTERED");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        usernameField.setBackground(new java.awt.Color(204, 204, 204));
+        usernameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                usernameFieldActionPerformed(evt);
+            }
+        });
+
+        passwordField.setBackground(new java.awt.Color(204, 204, 204));
+
+        numberField.setBackground(new java.awt.Color(204, 204, 204));
+
+        getregistered.setBackground(new java.awt.Color(204, 204, 204));
+        getregistered.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        getregistered.setText("GET REGISTERED");
+        getregistered.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                getregisteredActionPerformed(evt);
             }
         });
 
         BACK.setBackground(new java.awt.Color(204, 204, 204));
         BACK.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         BACK.setText("BACK");
+        BACK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BACKActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
@@ -89,11 +104,11 @@ public class registration extends javax.swing.JFrame {
                             .addComponent(jLabel4))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1)
+                            .addComponent(getregistered)
                             .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(username, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                                .addComponent(password)
-                                .addComponent(number))))
+                                .addComponent(usernameField, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                                .addComponent(passwordField)
+                                .addComponent(numberField))))
                     .addGroup(panel1Layout.createSequentialGroup()
                         .addGap(126, 126, 126)
                         .addComponent(jLabel1)))
@@ -101,31 +116,31 @@ public class registration extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(BACK)
-                .addGap(29, 29, 29))
+                .addGap(44, 44, 44))
         );
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
                         .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(usernameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(26, 26, 26)
                         .addComponent(jLabel3)))
                 .addGap(29, 29, 29)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(number, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(numberField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addComponent(getregistered, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addComponent(BACK)
-                .addGap(21, 21, 21))
+                .addGap(22, 22, 22))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -142,92 +157,90 @@ public class registration extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       String Username = username.getText();// TODO add your handling code here:
-       String Password = password.getText();
-       String Cellnumber = number.getText();
-    
-       
-     if (Username.length()<=5 && Username.contains("_")){
-     
-         JOptionPane.showMessageDialog(null, "Username Successfuly Captured");
-     } 
-                else 
-     {
-               JOptionPane.showMessageDialog(null, "Username is not correctly formatted,please ensure that your username contains an underscore and is no more than five characters in length");
-       
-    }//GEN-LAST:event_jButton1ActionPerformed
-     
-    
-    if (Password.length()<=8 && Password.contains("*[A-Z]*")&& Password.contains(".*[0-9].*") && Password.contains("*.[!@#$%^&*(),.?\\\":{}|<>!].*")){
-     
-        JOptionPane.showMessageDialog(null, "Password successfully captured");
-    }
-    
-    else
-     {
-        JOptionPane.showMessageDialog(null, "Password is not correctly formatted;please make sure that the password contains eight characters, a capital letter,a number, and a special character");
-}
-    }
-    
-    
-    
-    public class CellphoneValidator {
-    public static boolean isValidCellphone(String number) {
-        // 1. Check if null or empty
-        if (number == null || number.isEmpty()) {
-            return false;
-        }
+    private void getregisteredActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getregisteredActionPerformed
+     // TODO add your handling code here:
+       String usernameInput = usernameField.getText();
+       String passwordInput = passwordField.getText();
+       String cellNumber    = numberField.getText();
 
-        // 2. Check length (10 digits for local numbers)
-        if (number.length() != 10) {
-            return false;
-        }
-
-        // 3. Must start with 0
-        if (!number.startsWith("0")) {
-            return false;
-        }
-
-        // 4. Must only contain digits
-        for (int i = 0; i < number.length(); i++) {
-            if (!Character.isDigit(number.charAt(i))) {
-                return false;
-            }
-        }
-
-        // 5. (Optional) Check valid prefixes: 06, 07, 08
-        String prefix = number.substring(0, 2);
-        if (!(prefix.equals("06") || prefix.equals("07") || prefix.equals("08"))) {
-            return false;
-        }
-
-        return true; // ✅ Passed all checks
-    }
-
-    public static void main(String[] args) {
-        System.out.println(isValidCellphone("0823456789")); // true
-        System.out.println(isValidCellphone("0621234567")); // true
-        System.out.println(isValidCellphone("0123456789")); // false (wrong prefix)
-        System.out.println(isValidCellphone("08234abc89")); // false (not all digits)
-        System.out.println(isValidCellphone("082345678"));  // false (too short)
-    }
-}
+        validateUsername(usernameInput);
+        validatePassword(passwordInput);
+        validateCellNumber(cellNumber);
    
     
-     private void BACKActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        new homepage().setVisible(true);// TODO add your handling code here:
-    }    
+    }
+    
+
+    // ✅ Username Validation
+    public static void validateUsername(String username) {
+        if (username.length() <= 5 && username.contains("_")) {
+            JOptionPane.showMessageDialog(null, "Username Successfully Captured");
+        } else {
+            JOptionPane.showMessageDialog(
+                null,
+                "Username is not correctly formatted. " +
+                "Please ensure that your username contains an underscore " +
+                "and is no more than five characters in length."
+            );
+        }
+    }
+
+    // ✅ Password Validation (using regex)
+    public static void validatePassword(String password) {
+        // Regex explanation:
+        // (?=.*[A-Z])    → must contain uppercase
+        // (?=.*[0-9])    → must contain digit
+        // (?=.*[!@#$%^&*(),.?\":{}|<>]) → must contain special char
+        // .{8,}          → at least 8 chars long
+        String regex = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*(),.?\":{}|<>]).{8,}$";
+        
+        if (password.matches(regex)) {
+            JOptionPane.showMessageDialog(null, "Password Successfully Captured");
+        } else {
+            JOptionPane.showMessageDialog(
+                null,
+                "Password is not correctly formatted. Please make sure it is at least " +
+                "eight characters long, contains a capital letter, a number, and a special character."
+            );
+        }
+    }
+
+    // ✅ Cell Number Validation
+    public static void validateCellNumber(String cellnumber) {
+        if (cellnumber.length() == 12 && cellnumber.startsWith("+27")) {
+            JOptionPane.showMessageDialog(null, "Cellphone number Successfully Added");
+        } else {
+            JOptionPane.showMessageDialog(
+                null,
+                "Cellphone number incorrectly formatted or does not contain international code."
+            );
+        }
+    
+
+    }//GEN-LAST:event_getregisteredActionPerformed
+
+    private void usernameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_usernameFieldActionPerformed
+
+    private void BACKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BACKActionPerformed
+       new homepage().setVisible(true); // TODO add your handling code here:
+    }//GEN-LAST:event_BACKActionPerformed
+     
+    
+    
+        
+     
    
     
      
     
    
-      
+ 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -250,27 +263,32 @@ public class registration extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(registration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+    
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new registration().setVisible(true);
-            }
-        });
+       java.awt.EventQueue.invokeLater(new Runnable() {
+    public void run() {
+        new registration().setVisible(true);
     }
+});
+            
+        
+        
+        
+    
 
 
 
+     }               
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BACK;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton getregistered;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField number;
+    private javax.swing.JTextField numberField;
     private java.awt.Panel panel1;
-    private javax.swing.JTextField password;
-    private javax.swing.JTextField username;
+    private javax.swing.JTextField passwordField;
+    private javax.swing.JTextField usernameField;
     // End of variables declaration//GEN-END:variables
 }
