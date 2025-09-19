@@ -9,7 +9,7 @@ public class registrationTest {
     @Test
     public void testValidUsername() {
         // Username should contain underscore and be <= 5 characters
-        assertTrue(isValidUsername("ab_cd"));
+        assertTrue(isValidUsername("kyl_1"));
     }
 
     @Test
@@ -26,7 +26,7 @@ public class registrationTest {
     @Test
     public void testValidPassword() {
         // At least 8 chars, uppercase, number, special char
-        assertTrue(isValidPassword("Passw0rd!"));
+        assertTrue(isValidPassword("Ch&&sec@ke99"));
     }
 
     @Test
@@ -52,7 +52,7 @@ public class registrationTest {
     // ✅ Cell Number Tests
     @Test
     public void testValidCellNumber() {
-        assertTrue(isValidCellNumber("+271234567890"));
+        assertTrue(isValidCellNumber("+27838968976"));
     }
 
     @Test

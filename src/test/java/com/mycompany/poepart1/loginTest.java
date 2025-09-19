@@ -8,8 +8,8 @@ class loginTest {
     // ✅ Username tests
     @Test
     void testValidUsername() {
-        assertTrue(login.validateUsername("abc_"));
-        assertTrue(login.validateUsername("a_bc"));
+        assertTrue(login.validateUsername("kyl_1"));
+        assertTrue(login.validateUsername("kyl_1"));
     }
 
     @Test
@@ -21,8 +21,8 @@ class loginTest {
     // ✅ Password tests
     @Test
     void testValidPassword() {
-        assertTrue(login.validatePassword("Abcdef1!"));
-        assertTrue(login.validatePassword("Xyz123$%"));
+        assertTrue(login.validatePassword("Ch&&sec@ke99"));
+        assertTrue(login.validatePassword("Ch&&sec@ke99"));
     }
 
     @Test
